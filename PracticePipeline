@@ -23,7 +23,7 @@ pipeline{
         success {
             mail bcc: '', body: 'Build was successful', cc: '', from: '', replyTo: '', subject: 'Build status', to: 'huzaifa.tin.edu@gmail.com'
         }
-        fail {
+        unsuccessful {
             mail bcc: '', body: 'Build was a failure', cc: '', from: '', replyTo: '', subject: 'Build status', to: 'huzaifa.tin.edu@gmail.com'
         }
     }
