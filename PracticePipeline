@@ -1,0 +1,27 @@
+pipeline{
+    agent any
+    tools {
+        maven 'm386'
+        jdk 'java8'
+    }
+    enivronment {
+        COMPANY_CODE='PRAGRA-123'
+    }
+    stages {
+        stage ('Compile') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        stage ('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+    }
+    post {
+        success {
+            mail bcc: '', body: 'Build was successful', cc: '', from: '', replyTo: '', subject: 'Build status', to: 'huzaifa.tin.edu@gmail.com'
+        }
+    }
+}
